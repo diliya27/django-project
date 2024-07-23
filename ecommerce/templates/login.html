@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>LOGIN</title>
+{% endblock %}
+
+{% block content %}
+
+<center>
+   <h2>LOGIN  HERE.......</h2>
+<form class="container" method="post" >
+
+  {% csrf_token %}
+
+  <div class="mb-3">
+  <label class="form-label">Usernane</label>
+  <input type="text" class="form-control" name="u"  placeholder="Enter Username">
+</div>
+  <div class="mb-3">
+  <label class="form-label">Password</label>
+  <input type="password" class="form-control" name="p"  placeholder="Enter Password">
+</div>
+<div >
+
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+</div>
+</form>
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</center>
+{% endblock %}
+

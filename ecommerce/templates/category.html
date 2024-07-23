@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mb-5">
+<img src="{% static 'image/ebay.jpg' %}">
+   <center><h2>EBAY</h2></center>
+  <p class="fs-5 fw-bolder fst-italic text-decoration-undereline">performance and strategic initiatives. eBay Inc (eBay) is an e-commerce marketplace that connects buyers and sellers. The company through its platform offers antiques, art, baby products, books, auto parts and accessories, clothing, shoes, lifestyle accessories, collectibles, office equipment, craft, and electronics.</p>
+  <br>
+
+  <div class="row mt-5 mt-5">
+   {% for i in item %}
+
+        <div class="col-sm-3">
+             <div class="card border border-1 border-primary" style="width: 18rem ;">
+                <img src="{{i.image.url}}" style="height:300px;width:100%"  alt="...">
+                   <div class="card-body">
+                        <h4 class="card-text">{{i.name}}</h4>
+                           <a href="{% url 'shop:product' i.id %}" class="btn btn-primary">SHOP NOW</a>
+                   </div>
+             </div>
+
+      </div>
+
+      {% endfor %}
+
+</div>
+</div>
+{% endblock %}
